@@ -1,0 +1,63 @@
+npm install vite
+npm intall react-redux @reduxjs/toolkit bootstrap react-router-dom
+
+after installation check json file dependencies 
+
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+ 
+main.tsx :
+use provider and configureStore and wrap app with provider and const a srore with configure store to give that store to provider
+
+create userReducer.tsx file
+userreducer.tsx:
+
+import {createSlice} from @redux/toolkit
+import {userList} from "./assets/Data";  => there is a data file from the users
+
+and give it to userSlice => initials
+
+create home.tsx:
+import React from "react"
+import {useSelector} "from react-redux" => this is a hook that give us access to our store reducer that we build in main.sx
+
+
+main.tsx :
+import userReducer from userReducer and assign it to store => reducer => user
+
+
+create create.jsx :
+import React, { useState } from "react";
+and create a form with inputs and label for creating users,
+we const  setName and setEmail and setEmail equal to useState("") to store theyre value:
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+then we use reducer and create addUser function  in userreducer.jsx for handling the submit btn function in create.jsx
+
+create.jsx:
+add import dispatch and useSelector hook for dispatching the addUser reducer and gite it unic
+id with useSelector hook:
+import { useDispatch, useSelector } from "react-redux";
+
+create Update.jsx :
+
+with 2 input for editing the users
+
+get the users and use useParams for getting the id and get the name and email from id and give it to the name and  email of the value of the inputs 
+
+ 
+
+userReducer :
+create updateuser in reducer and for cheking and updating user
+
+and use it in update.jsx
+
+update.jsx :
+create function for handlingUpdate 
+in the function use preventDefault
+useDispatch and in the dispatch use  updateuser from userReducer
+then navigate to Home page
+
+
+
